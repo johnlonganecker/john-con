@@ -68,11 +68,9 @@ func child() {
 
 	must(syscall.Chroot("core"))
 	must(os.Chdir("/"))
+	must(syscall.Mount("proc", "proc", "proc", 0, ""))
 
-	fmt.Println(os.Args[2])
-	fmt.Println(os.Args[3:])
 	cmd := exec.Command(os.Args[2], os.Args[3:]...)
-
 	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
