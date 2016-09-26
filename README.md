@@ -58,7 +58,7 @@ Then create our rootfs
 
 ```
 cd boot
-gzip -d core.gz
+gzip -dk core.gz
 cpio -i < core
 ```
 
